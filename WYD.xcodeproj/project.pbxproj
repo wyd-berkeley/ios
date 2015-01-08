@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D0D51A01A5E0FA0008FD65F /* ProfileConsoleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0D519F1A5E0FA0008FD65F /* ProfileConsoleViewController.swift */; };
+		7D0D51A61A5F2FF2008FD65F /* AvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0D51A51A5F2FF2008FD65F /* AvatarCell.swift */; };
 		7DD0BA681A5C867C00DDB3A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD0BA671A5C867C00DDB3A8 /* AppDelegate.swift */; };
-		7DD0BA6A1A5C867C00DDB3A8 /* DefaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD0BA691A5C867C00DDB3A8 /* DefaultViewController.swift */; };
+		7DD0BA6A1A5C867C00DDB3A8 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD0BA691A5C867C00DDB3A8 /* RootViewController.swift */; };
 		7DD0BA6D1A5C867C00DDB3A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DD0BA6B1A5C867C00DDB3A8 /* Main.storyboard */; };
 		7DD0BA6F1A5C867C00DDB3A8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DD0BA6E1A5C867C00DDB3A8 /* Images.xcassets */; };
 		7DD0BA721A5C867C00DDB3A8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DD0BA701A5C867C00DDB3A8 /* LaunchScreen.xib */; };
@@ -43,10 +45,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7D0D519F1A5E0FA0008FD65F /* ProfileConsoleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileConsoleViewController.swift; sourceTree = "<group>"; };
+		7D0D51A51A5F2FF2008FD65F /* AvatarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarCell.swift; sourceTree = "<group>"; };
 		7DD0BA621A5C867C00DDB3A8 /* WYD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WYD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DD0BA661A5C867C00DDB3A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7DD0BA671A5C867C00DDB3A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7DD0BA691A5C867C00DDB3A8 /* DefaultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultViewController.swift; sourceTree = "<group>"; };
+		7DD0BA691A5C867C00DDB3A8 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		7DD0BA6C1A5C867C00DDB3A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7DD0BA6E1A5C867C00DDB3A8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7DD0BA711A5C867C00DDB3A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -130,11 +134,13 @@
 		7DD0BA641A5C867C00DDB3A8 /* WYD */ = {
 			isa = PBXGroup;
 			children = (
+				7D0D51A51A5F2FF2008FD65F /* AvatarCell.swift */,
 				7DD0BA671A5C867C00DDB3A8 /* AppDelegate.swift */,
-				7DD0BA691A5C867C00DDB3A8 /* DefaultViewController.swift */,
+				7DD0BA691A5C867C00DDB3A8 /* RootViewController.swift */,
+				7D0D519F1A5E0FA0008FD65F /* ProfileConsoleViewController.swift */,
 				7DD0BA6B1A5C867C00DDB3A8 /* Main.storyboard */,
-				7DD0BA6E1A5C867C00DDB3A8 /* Images.xcassets */,
 				7DD0BA701A5C867C00DDB3A8 /* LaunchScreen.xib */,
+				7DD0BA6E1A5C867C00DDB3A8 /* Images.xcassets */,
 				7DD0BA651A5C867C00DDB3A8 /* Supporting Files */,
 				7DD0BAAA1A5C87CB00DDB3A8 /* WYD-Bridging-Header.h */,
 			);
@@ -290,8 +296,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7DD0BA6A1A5C867C00DDB3A8 /* DefaultViewController.swift in Sources */,
+				7DD0BA6A1A5C867C00DDB3A8 /* RootViewController.swift in Sources */,
 				7DD0BA681A5C867C00DDB3A8 /* AppDelegate.swift in Sources */,
+				7D0D51A61A5F2FF2008FD65F /* AvatarCell.swift in Sources */,
+				7D0D51A01A5E0FA0008FD65F /* ProfileConsoleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  RootViewController.swift
 //  WYD
 //
 //  Created by Fan Ye on 1/6/15.
@@ -8,24 +8,27 @@
 
 import UIKit
 
-class DefaultViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
+class RootViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    
     override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        var logInController = PFLogInViewController()
-        logInController.delegate = self
-        
-        var signUpController = PFSignUpViewController()
-        signUpController.delegate = self
-        
-        logInController.signUpController = signUpController
-        self.presentViewController(logInController, animated: true, completion: nil)
+        var currentUser = PFUser.currentUser()
+        if (currentUser == nil){
+            var logInController = PFLogInViewController()
+            logInController.delegate = self
+            logInController.facebookPermissions = ["friends_about_me"]
+            logInController.fields = (PFLogInFields.Default
+                | PFLogInFields.Facebook
+                | PFLogInFields.Twitter
+                | PFLogInFields.DismissButton)
+            
+            self.presentViewController(logInController, animated: true, completion: nil)
+        } else {
+            self.performSegueWithIdentifier("toMainCtrlSegue", sender: nil)
+        }
     }
     
     func logInViewController(logInController: PFLogInViewController!, shouldBeginLogInWithUsername username: String!, password: String!) -> Bool {
