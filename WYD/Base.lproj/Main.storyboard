@@ -57,28 +57,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="cZ8-Nr-Fjm">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="64" width="400" height="536"/>
-                                </variation>
-                            </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nj3-yc-NXk" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="nj3-yc-NXk" secondAttribute="bottom" id="GQo-N6-KIy"/>
+                            <constraint firstItem="nj3-yc-NXk" firstAttribute="leading" secondItem="PjI-ud-PZ3" secondAttribute="leading" id="GbY-mJ-UUU"/>
+                            <constraint firstItem="nj3-yc-NXk" firstAttribute="top" secondItem="AbM-mn-NMA" secondAttribute="bottom" id="HPN-x2-muo"/>
+                            <constraint firstAttribute="trailing" secondItem="nj3-yc-NXk" secondAttribute="trailing" id="kgR-eS-90E"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="cZ8-Nr-Fjm"/>
+                                <exclude reference="nj3-yc-NXk"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="GQo-N6-KIy"/>
+                                <exclude reference="GbY-mJ-UUU"/>
+                                <exclude reference="HPN-x2-muo"/>
+                                <exclude reference="kgR-eS-90E"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="cZ8-Nr-Fjm"/>
+                                <include reference="nj3-yc-NXk"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="GQo-N6-KIy"/>
+                                <include reference="GbY-mJ-UUU"/>
+                                <include reference="HPN-x2-muo"/>
+                                <include reference="kgR-eS-90E"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="SlZ-5B-RZP"/>
                     <connections>
-                        <outlet property="mapView" destination="cZ8-Nr-Fjm" id="M2s-XN-KaC"/>
+                        <outlet property="mapView" destination="nj3-yc-NXk" id="1wC-uO-udN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OV9-Qf-XkM" userLabel="First Responder" sceneMemberID="firstResponder"/>

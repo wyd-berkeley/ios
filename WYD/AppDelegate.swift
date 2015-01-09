@@ -12,10 +12,12 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate  {
 
     var window: UIWindow?
-
+    let googleMapApiKey = "AIzaSyBA4qQzc58rSk0cE0I4-KBo3cYGtkb5cfk"
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         Parse.setApplicationId("kcr1pV3MOXytu30yVSucjvh1xsZfoud8OFlUb1AY", clientKey: "lAa7vujopvepubywoGtqGE8XJ94cnzC34nnawVCA")
+        GMSServices.provideAPIKey(googleMapApiKey)
+        PFFacebookUtils.initializeFacebook()
         return true
     }
 
@@ -34,13 +36,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
+        FBAppCall.handleDidBecomeActiveWithSession(PFFacebookUtils.session())
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+    
+    func application(application: UIApplication,
+        openURL url: NSURL,
+        sourceApplication: String,
+        annotation: AnyObject?) -> Bool {
+            return FBAppCall.handleOpenURL(url, sourceApplication:sourceApplication,
+                withSession:PFFacebookUtils.session())
+    }
 
 }
 

@@ -22,7 +22,6 @@ class RootViewController: UIViewController, PFLogInViewControllerDelegate, PFSig
             logInController.facebookPermissions = ["friends_about_me"]
             logInController.fields = (PFLogInFields.Default
                 | PFLogInFields.Facebook
-                | PFLogInFields.Twitter
                 | PFLogInFields.DismissButton)
             
             self.presentViewController(logInController, animated: true, completion: nil)
