@@ -12,5 +12,5 @@ class AvatarCell: UITableViewCell {
 
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
-
+    
 }

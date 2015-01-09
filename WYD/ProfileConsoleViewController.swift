@@ -9,31 +9,52 @@
 import UIKit
 
 class ProfileConsoleViewController: UITableViewController{
-
-    @IBOutlet var profileConsole: UITableView!
     
     var options :[String] = ["logout"]
-    
+    var selectedMenuItem : Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         var user = PFUser.currentUser()
-        self.profileConsole.tableFooterView = UIView(frame: CGRectZero)
+        tableView.tableFooterView = UIView(frame: CGRectZero)
+        tableView.registerNib(UINib(nibName: "AvatarCell", bundle: nil), forCellReuseIdentifier: "avatar")
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         self.clearsSelectionOnViewWillAppear = true
+        
+        tableView.contentInset = UIEdgeInsetsMake(64.0, 0, 0, 0)
+        tableView.separatorStyle = .None
+        tableView.backgroundColor = UIColor.clearColor()
+        tableView.scrollsToTop = false
+        
+        self.clearsSelectionOnViewWillAppear = false
+        
+        tableView.selectRowAtIndexPath(NSIndexPath(forRow: selectedMenuItem, inSection: 0), animated: false, scrollPosition: .Middle)
     }
+    
+    
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.options.count + 1
     }
     
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: UITableViewCell
         if indexPath.row == 0 {
-            cell = self.profileConsole.dequeueReusableCellWithIdentifier("avatar", forIndexPath: indexPath) as AvatarCell
-            
+            cell = tableView.dequeueReusableCellWithIdentifier("avatar", forIndexPath: indexPath) as AvatarCell
         } else {
-            cell = self.profileConsole.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
+            cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
         }
+        
+        if (cell.textLabel?.text == "") {
+            cell.backgroundColor = UIColor.clearColor()
+            let selectBgView = UIView(frame: CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height))
+            selectBgView.backgroundColor = UIColor.grayColor().colorWithAlphaComponent(0.2)
+        }
+        
         
         if let cell = cell as? AvatarCell {
             let user = PFUser.currentUser()
@@ -45,7 +66,6 @@ class ProfileConsoleViewController: UITableViewController{
                 cell.textLabel?.textAlignment = NSTextAlignment.Center
                 cell.textLabel?.textColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1)
             }
-            
         }
         
         return cell
@@ -62,15 +82,29 @@ class ProfileConsoleViewController: UITableViewController{
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        if indexPath.row > 0 {
-            switch self.options[indexPath.row - 1] {
-            case "logout":
-                PFUser.logOut()
-                self.performSegueWithIdentifier("returnHome", sender: nil)
-            default:
-                println(self.options[indexPath.row - 1])
-            }
+        
+        if (indexPath.row == selectedMenuItem) {
+            return
         }
+        selectedMenuItem = indexPath.row
+        
+        print(indexPath.row)
+        
+        //Present new view controller
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
+        var destViewController : UIViewController
+        switch (indexPath.row) {
+        case 0:
+            destViewController = self
+            break
+        default:
+            PFUser.logOut()
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("RootVC") as UIViewController
+            
+            break
+        }
+        
+        sideMenuController()?.setContentViewController(destViewController)
     }
 
 }
