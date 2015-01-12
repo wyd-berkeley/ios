@@ -100,7 +100,6 @@ class ProfileConsoleViewController: UITableViewController{
         default:
             PFUser.logOut()
             destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("RootVC") as UIViewController
-            
             break
         }
         

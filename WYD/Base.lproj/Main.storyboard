@@ -92,7 +92,13 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="SlZ-5B-RZP"/>
+                    <navigationItem key="navigationItem" id="SlZ-5B-RZP">
+                        <barButtonItem key="leftBarButtonItem" image="icon" id="bQK-Ev-RGg">
+                            <connections>
+                                <action selector="userIconTapped:" destination="nCa-Xm-FoB" id="yfu-uO-aEV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="nj3-yc-NXk" id="1wC-uO-udN"/>
                     </connections>
@@ -102,4 +108,7 @@
             <point key="canvasLocation" x="-199.5" y="-696"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon" width="32" height="32"/>
+    </resources>
 </document>

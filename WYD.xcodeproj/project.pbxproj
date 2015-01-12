@@ -33,7 +33,6 @@
 		7DCBF4921A608B14000F40DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DCBF4911A608B14000F40DF /* Foundation.framework */; };
 		7DCBF4A01A608DAE000F40DF /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DCBF49F1A608DAE000F40DF /* libc++.dylib */; };
 		7DCBF4A21A608DB8000F40DF /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DCBF4A11A608DB8000F40DF /* libstdc++.6.dylib */; };
-		7DCBF4A41A608E3E000F40DF /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DCBF4A31A608E3E000F40DF /* Bolts.framework */; };
 		7DD0BA681A5C867C00DDB3A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD0BA671A5C867C00DDB3A8 /* AppDelegate.swift */; };
 		7DD0BA6A1A5C867C00DDB3A8 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD0BA691A5C867C00DDB3A8 /* RootViewController.swift */; };
 		7DD0BA6D1A5C867C00DDB3A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DD0BA6B1A5C867C00DDB3A8 /* Main.storyboard */; };
@@ -91,7 +90,6 @@
 		7DCBF4911A608B14000F40DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7DCBF49F1A608DAE000F40DF /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		7DCBF4A11A608DB8000F40DF /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
-		7DCBF4A31A608E3E000F40DF /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		7DD0BA621A5C867C00DDB3A8 /* WYD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WYD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DD0BA661A5C867C00DDB3A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7DD0BA671A5C867C00DDB3A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -125,7 +123,6 @@
 				7DCBF4A21A608DB8000F40DF /* libstdc++.6.dylib in Frameworks */,
 				7DCBF4A01A608DAE000F40DF /* libc++.dylib in Frameworks */,
 				7DCBF4921A608B14000F40DF /* Foundation.framework in Frameworks */,
-				7DCBF4A41A608E3E000F40DF /* Bolts.framework in Frameworks */,
 				7DCBF4821A6084D2000F40DF /* CoreGraphics.framework in Frameworks */,
 				7DCBF47E1A60839D000F40DF /* OpenGLES.framework in Frameworks */,
 				7DCBF47C1A608390000F40DF /* libicucore.dylib in Frameworks */,
@@ -258,7 +255,6 @@
 		7DD0BA871A5C868500DDB3A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7DCBF4A31A608E3E000F40DF /* Bolts.framework */,
 				7DCBF4A11A608DB8000F40DF /* libstdc++.6.dylib */,
 				7DCBF49F1A608DAE000F40DF /* libc++.dylib */,
 				7DCBF4911A608B14000F40DF /* Foundation.framework */,
@@ -529,11 +525,6 @@
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/fanye/Downloads/parse-library-1.6.1",
-					"/Users/fanye/Downloads/GoogleMaps-iOS-1.9.1",
-					3,
-					"/Users/fanye/Downloads/GoogleMaps-iOS-1.9.1",
-					4,
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = WYD/Info.plist;
@@ -552,11 +543,6 @@
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/fanye/Downloads/parse-library-1.6.1",
-					"/Users/fanye/Downloads/GoogleMaps-iOS-1.9.1",
-					3,
-					"/Users/fanye/Downloads/GoogleMaps-iOS-1.9.1",
-					4,
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = WYD/Info.plist;

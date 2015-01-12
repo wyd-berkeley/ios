@@ -8,10 +8,19 @@
 
 import UIKit
 
+
+
 class RootViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    func createLogoLable() -> UILabel {
+        var logo = UILabel()
+        logo.text = "WYD"
+        logo.font = logo.font.fontWithSize(30)
+        return logo
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -20,10 +29,16 @@ class RootViewController: UIViewController, PFLogInViewControllerDelegate, PFSig
             var logInController = PFLogInViewController()
             logInController.delegate = self
             logInController.facebookPermissions = ["friends_about_me"]
-            logInController.fields = (PFLogInFields.Default
-                | PFLogInFields.Facebook
-                | PFLogInFields.DismissButton)
+            logInController.fields = (PFLogInFields.LogInButton
+                | PFLogInFields.SignUpButton
+                | PFLogInFields.PasswordForgotten
+                | PFLogInFields.UsernameAndPassword
+                | PFLogInFields.Facebook)
+
+            logInController.logInView.logo = createLogoLable()
+            logInController.signUpController = PFSignUpViewController()
             
+            logInController.signUpController.signUpView.logo = createLogoLable()
             self.presentViewController(logInController, animated: true, completion: nil)
         } else {
             self.performSegueWithIdentifier("toMainCtrlSegue", sender: nil)
