@@ -11,6 +11,7 @@
 		7D0D51AC1A5F4848008FD65F /* ENSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0D51AA1A5F4848008FD65F /* ENSideMenu.swift */; };
 		7D0D51AD1A5F4848008FD65F /* ENSideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0D51AB1A5F4848008FD65F /* ENSideMenuNavigationController.swift */; };
 		7D334D4F1A605FD8006F10AE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D334D4E1A605FD8006F10AE /* MainViewController.swift */; };
+		7D91A6AB1A65D3F3008439F7 /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D91A6AA1A65D3F3008439F7 /* UserProfileController.swift */; };
 		7DBDB4CE1A5F4CB70040DFE0 /* AvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBDB4CC1A5F4CB70040DFE0 /* AvatarCell.swift */; };
 		7DBDB4CF1A5F4CB70040DFE0 /* AvatarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DBDB4CD1A5F4CB70040DFE0 /* AvatarCell.xib */; };
 		7DBDB4D11A5F4D7B0040DFE0 /* MyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBDB4D01A5F4D7B0040DFE0 /* MyNavigationController.swift */; };
@@ -68,6 +69,7 @@
 		7D0D51AA1A5F4848008FD65F /* ENSideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ENSideMenu.swift; path = "../../../Downloads/ENSwiftSideMenu-master/Library/ENSideMenu.swift"; sourceTree = "<group>"; };
 		7D0D51AB1A5F4848008FD65F /* ENSideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ENSideMenuNavigationController.swift; path = "../../../Downloads/ENSwiftSideMenu-master/Library/ENSideMenuNavigationController.swift"; sourceTree = "<group>"; };
 		7D334D4E1A605FD8006F10AE /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		7D91A6AA1A65D3F3008439F7 /* UserProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
 		7DBDB4CC1A5F4CB70040DFE0 /* AvatarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AvatarCell.swift; path = ../AvatarCell.swift; sourceTree = "<group>"; };
 		7DBDB4CD1A5F4CB70040DFE0 /* AvatarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AvatarCell.xib; path = ../AvatarCell.xib; sourceTree = "<group>"; };
 		7DBDB4D01A5F4D7B0040DFE0 /* MyNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyNavigationController.swift; path = "../../../../Downloads/ENSwiftSideMenu-master/Example/SwiftSideMenu/MyNavigationController.swift"; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				7DBDB4D01A5F4D7B0040DFE0 /* MyNavigationController.swift */,
 				7D334D4E1A605FD8006F10AE /* MainViewController.swift */,
 				7D0D519F1A5E0FA0008FD65F /* ProfileConsoleViewController.swift */,
+				7D91A6AA1A65D3F3008439F7 /* UserProfileController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				7DBDB4CE1A5F4CB70040DFE0 /* AvatarCell.swift in Sources */,
 				7D0D51A01A5E0FA0008FD65F /* ProfileConsoleViewController.swift in Sources */,
 				7D334D4F1A605FD8006F10AE /* MainViewController.swift in Sources */,
+				7D91A6AB1A65D3F3008439F7 /* UserProfileController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

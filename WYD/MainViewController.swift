@@ -36,8 +36,8 @@ class MainViewController: UIViewController, GMSMapViewDelegate, CLLocationManage
         self.locationManager.delegate = self
         self.locationManager.distanceFilter = kCLDistanceFilterNone
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        
         self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.stopUpdatingLocation()
         self.locationManager.startUpdatingLocation()
 
         

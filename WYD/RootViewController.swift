@@ -32,13 +32,14 @@ class RootViewController: UIViewController, PFLogInViewControllerDelegate, PFSig
             logInController.fields = (PFLogInFields.LogInButton
                 | PFLogInFields.SignUpButton
                 | PFLogInFields.PasswordForgotten
-                | PFLogInFields.UsernameAndPassword
-                | PFLogInFields.Facebook)
+                | PFLogInFields.UsernameAndPassword)
 
             logInController.logInView.logo = createLogoLable()
             logInController.signUpController = PFSignUpViewController()
             
+            logInController.signUpController.delegate = self
             logInController.signUpController.signUpView.logo = createLogoLable()
+            logInController.signUpController.signUpView.emailField.placeholder = "email: @XXX.edu"
             self.presentViewController(logInController, animated: true, completion: nil)
         } else {
             self.performSegueWithIdentifier("toMainCtrlSegue", sender: nil)
@@ -71,10 +72,15 @@ class RootViewController: UIViewController, PFLogInViewControllerDelegate, PFSig
     
     func signUpViewController(signUpController: PFSignUpViewController!, shouldBeginSignUp info: [NSObject : NSString]!) -> Bool {
         var informationComplete = true
+        var eduEmail = true
         
         for (key, field) in info {
             if (field.length == 0) {
                 informationComplete = false
+                break
+            }
+            if (key == "email") && (!field.hasSuffix(".edu")) {
+                eduEmail = false
                 break
             }
         }
@@ -84,7 +90,12 @@ class RootViewController: UIViewController, PFLogInViewControllerDelegate, PFSig
             alert.show()
         }
         
-        return informationComplete
+        if !eduEmail {
+            var alert = UIAlertView(title: "Invalid Email", message: "We only accept .edu email registration", delegate: nil, cancelButtonTitle: "Use a different email")
+            alert.show()
+        }
+        
+        return informationComplete && eduEmail
     }
     
     func signUpViewControllerDidCancelSignUp(signUpController: PFSignUpViewController!) {
@@ -92,11 +103,16 @@ class RootViewController: UIViewController, PFLogInViewControllerDelegate, PFSig
     }
     
     func signUpViewController(signUpController: PFSignUpViewController!, didSignUpUser user: PFUser!) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        if (user != nil) {
+            self.performSegueWithIdentifier("toMainCtrlSegue", sender: nil)
+        } else {
+            self.showViewController(self, sender: nil)
+        }
     }
     
     func signUpViewController(signUpController: PFSignUpViewController!, didFailToSignUpWithError error: NSError!) {
-        NSLog("Failed to log in")
+        
+        NSLog("Failed to sign up")
     }
     
     override func didReceiveMemoryWarning() {

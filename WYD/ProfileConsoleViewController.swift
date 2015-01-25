@@ -10,31 +10,29 @@ import UIKit
 
 class ProfileConsoleViewController: UITableViewController{
     
-    var options :[String] = ["logout"]
+    var options :[String] = ["Profile", "Link Facebook Account", "logout"]
     var selectedMenuItem : Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         var user = PFUser.currentUser()
+        
         tableView.tableFooterView = UIView(frame: CGRectZero)
         tableView.registerNib(UINib(nibName: "AvatarCell", bundle: nil), forCellReuseIdentifier: "avatar")
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        self.clearsSelectionOnViewWillAppear = true
+
+        tableView.separatorColor = UIColor.blackColor()
+        tableView.separatorInset = UIEdgeInsetsZero
         
         tableView.contentInset = UIEdgeInsetsMake(64.0, 0, 0, 0)
-        tableView.separatorStyle = .None
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
         tableView.backgroundColor = UIColor.clearColor()
-        tableView.scrollsToTop = false
-        
-        self.clearsSelectionOnViewWillAppear = false
-        
-        tableView.selectRowAtIndexPath(NSIndexPath(forRow: selectedMenuItem, inSection: 0), animated: false, scrollPosition: .Middle)
+        tableView.scrollsToTop = true
+        self.clearsSelectionOnViewWillAppear = true
     }
     
-    
-    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.options.count + 1
+        return self.options.count
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -61,13 +59,14 @@ class ProfileConsoleViewController: UITableViewController{
             cell.usernameLabel.text = user.username
             cell.avatarImage.image = UIImage(named: "back")
         } else {
-            cell.textLabel?.text = self.options[indexPath.row - 1]
-            if self.options[indexPath.row - 1] == "logout" {
-                cell.textLabel?.textAlignment = NSTextAlignment.Center
+            cell.textLabel?.text = self.options[indexPath.row]
+            cell.textLabel?.textAlignment = NSTextAlignment.Center
+            if self.options[indexPath.row] == "logout" {
                 cell.textLabel?.textColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1)
             }
         }
-        
+        cell.backgroundColor = UIColor.clearColor()
+
         return cell
     }
     
@@ -76,6 +75,16 @@ class ProfileConsoleViewController: UITableViewController{
             return 170
         } else {
             return UITableViewAutomaticDimension
+        }
+    }
+    
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.separatorInset = UIEdgeInsetsZero
+        cell.preservesSuperviewLayoutMargins = false
+        cell.layoutMargins = UIEdgeInsetsZero
+        
+        if (indexPath.row == options.count-1) {
+            cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, CGRectGetWidth(self.tableView.bounds))
         }
     }
 
@@ -88,14 +97,17 @@ class ProfileConsoleViewController: UITableViewController{
         }
         selectedMenuItem = indexPath.row
         
-        print(indexPath.row)
+        NSLog(String(indexPath.row))
         
         //Present new view controller
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
         var destViewController : UIViewController
-        switch (indexPath.row) {
-        case 0:
-            destViewController = self
+        switch (self.options[indexPath.row]) {
+        case "Profile":
+            destViewController = self.navigationController!
+            break
+        case "Link Facebook Account":
+            destViewController = self.navigationController!
             break
         default:
             PFUser.logOut()
